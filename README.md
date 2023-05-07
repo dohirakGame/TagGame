@@ -5,7 +5,7 @@
 <p align="center">
    <img src="" alt="Unity Version">
    <img src="" alt="Game Version">
-   <img src="" alt="License">
+   <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
 </p>
 
 ## About
