@@ -9,12 +9,17 @@ public class VolumeMixer : MonoBehaviour
 
     [SerializeField] private GameObject masterSlider;
     [SerializeField] private GameObject musicSlider;
-    [SerializeField] private GameObject soundSlider;
+    [SerializeField] private GameObject effectsSlider;
 
 	private const string masterName = "Master";
 	private const string musicName = "Music";
-	private const string soundName = "Sound";
+	private const string effectsName = "Effects";
     private const string volumeName = "Volume";
+
+	private void Start()
+	{
+        LoadData();
+	}
 
 	public void ChangeMasterVolume(float volume)
     {
@@ -26,67 +31,99 @@ public class VolumeMixer : MonoBehaviour
     }
     public void ChangeEffectsVolume(float volume)
     {
-        mixer.audioMixer.SetFloat(soundName + volumeName, Mathf.Lerp(-80, 0, volume));
+        mixer.audioMixer.SetFloat(effectsName + volumeName, Mathf.Lerp(-80, 0, volume));
     }
 
-    public void LoadVolumeData()
-    {
-        MusicData data = new MusicData();
-
-        float master = data.LoadData(masterName);
-        float music = data.LoadData(musicName);
-        float sound = data.LoadData(soundName);
-
-        SetVolumeData(master, masterName);
-        SetVolumeData(music, musicName);
-        SetVolumeData(sound, soundName);
-    }
-
-    public void SetVolumeData(float value, string name)
-    {
-		switch (name)
-        {
-            case masterName:
-                mixer.audioMixer.SetFloat(masterName + volumeName, value);
-                break;
-            case musicName:
-				mixer.audioMixer.SetFloat(musicName + volumeName, value);
-                break;
-            case soundName:
-                mixer.audioMixer.SetFloat(soundName + volumeName, value);
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void LoadSlidersData()
-    {
-        MusicData data = new MusicData();
-
-        data.LoadDataSlider(masterSlider, masterName);
-        data.LoadDataSlider(musicSlider, musicName);
-        data.LoadDataSlider(soundSlider, soundName);
+	public void LoadData()
+	{
+		LoadVolumeData();
+		LoadSlidersData();
 	}
+	public void SaveData()
+	{
+		SaveVolumeData();
+		SaveSlidersData();
+	}
+	private void LoadVolumeData()
+	{
+		MusicData data = new MusicData();
 
-    public void SaveVolumeData()
-    {
-        float master;
-        float music;
-        float sound;
+		float master = data.LoadDataMixer(masterName);
+		float music = data.LoadDataMixer(musicName);
+		float effects = data.LoadDataMixer(effectsName);
+
+		SetVolumeData(master, masterName);
+		SetVolumeData(music, musicName);
+		SetVolumeData(effects, effectsName);
+	}
+	private void LoadSlidersData()
+	{
+		MusicData data = new MusicData();
+
+		float master = data.LoadDataSlider(masterName);
+		float music = data.LoadDataSlider(musicName);
+		float effects = data.LoadDataSlider(effectsName);
+
+		SetSlidersData(master, masterName);
+		SetSlidersData(music, musicName);
+		SetSlidersData(effects, effectsName);
+	}
+	private void SetVolumeData(float value, string name)
+	{
+		switch (name)
+		{
+			case masterName:
+				mixer.audioMixer.SetFloat(masterName + volumeName, value);
+				break;
+			case musicName:
+				mixer.audioMixer.SetFloat(musicName + volumeName, value);
+				break;
+			case effectsName:
+				mixer.audioMixer.SetFloat(effectsName + volumeName, value);
+				break;
+		}
+	}
+	private void SetSlidersData(float value, string name)
+	{
+		switch (name)
+		{
+			case masterName:
+				masterSlider.GetComponent<Slider>().value = value;
+				break;
+			case musicName:
+				musicSlider.GetComponent<Slider>().value = value;
+				break;
+			case effectsName:
+				effectsSlider.GetComponent<Slider>().value = value;
+				break;
+		}
+	}
+	private void SaveVolumeData()
+	{
+		float master;
+		float music;
+		float effects;
 
 		MusicData data = new MusicData();
 
 		mixer.audioMixer.GetFloat(masterName + volumeName, out master);
 		mixer.audioMixer.GetFloat(musicName + volumeName, out music);
-		mixer.audioMixer.GetFloat(soundName + volumeName, out sound);
+		mixer.audioMixer.GetFloat(effectsName + volumeName, out effects);
 
-        data.SaveData(master, masterName);
-        data.SaveData(music, musicName);
-        data.SaveData(sound, soundName);
+		data.SaveDataMixer(master, masterName);
+		data.SaveDataMixer(music, musicName);
+		data.SaveDataMixer(effects, effectsName);
+	} 
+    private void SaveSlidersData()
+    {
+        float master = masterSlider.GetComponent<Slider>().value;
+        float music = musicSlider.GetComponent<Slider>().value;
+        float effects = effectsSlider.GetComponent<Slider>().value;
 
-        data.SaveDataSlider(masterSlider, masterName);
-        data.SaveDataSlider(musicSlider, musicName);
-        data.SaveDataSlider(soundSlider, soundName);
-    }
+        MusicData data = new MusicData();
+
+		data.SaveDataSlider(master, masterName);
+		data.SaveDataSlider(music, musicName);
+		data.SaveDataSlider(effects, effectsName);
+	}
 }

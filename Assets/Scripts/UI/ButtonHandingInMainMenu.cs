@@ -9,7 +9,6 @@ public class ButtonHandingInMainMenu : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private GameObject selectLevel;
-    [SerializeField] private GameObject backButton;
     [SerializeField] private GameObject resetButtons;
     [SerializeField] private GameObject resetData;
     [SerializeField] private GameObject saveData;
@@ -39,14 +38,10 @@ public class ButtonHandingInMainMenu : MonoBehaviour
 
     private void StartGame()
     {
-        VolumeMixer mixer = FindObjectOfType<VolumeMixer>();
-        mixer.LoadVolumeData();
-
         AudioManager.instance.Play("Background");
 
 		mainMenu.SetActive(true);
 		settingsButton.SetActive(true);
-		backButton.SetActive(false);
 		selectLevel.SetActive(false);
 		resetData.SetActive(false);
         saveData.SetActive(false);
@@ -61,7 +56,6 @@ public class ButtonHandingInMainMenu : MonoBehaviour
 
 		mainMenu.SetActive(false);
         settingsButton.SetActive(false);
-        backButton.SetActive(true);
         selectLevel.SetActive(true);
         
         levels = SetLevels();
@@ -74,28 +68,19 @@ public class ButtonHandingInMainMenu : MonoBehaviour
 
 		mainMenu.SetActive(false);
         settingsButton.SetActive(false);
-        backButton.SetActive(true);
         resetData.SetActive(true);
         saveData.SetActive(true);
         masterSlider.SetActive(true);
         musicSlider.SetActive(true);
         soundSlider.SetActive(true);
-
-		VolumeMixer mixer = FindObjectOfType<VolumeMixer>();
-		mixer.LoadVolumeData();
-        mixer.LoadSlidersData();
 	}
 
     public void ToBack()
     {
-		VolumeMixer mixer = FindObjectOfType<VolumeMixer>();
-		mixer.LoadVolumeData();
-
 		AudioManager.instance.Play("Click");
 
 		mainMenu.SetActive(true);
         settingsButton.SetActive(true);
-        backButton.SetActive(false);
         selectLevel.SetActive(false);
         resetData.SetActive(false);
         saveData.SetActive(false);

@@ -11,9 +11,10 @@ public class ButtonHandingInGame : MonoBehaviour
     [Header("Панели для меню")]
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject launchPanel;
-    [SerializeField] private GameObject pauseMenu;
+	[SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseButton;
-    
+
     [Header("Игровое поле")]
     [SerializeField] private GameObject game;
     [SerializeField] private GameObject level;
@@ -69,6 +70,22 @@ public class ButtonHandingInGame : MonoBehaviour
 
         timer.GetComponent<TimerTracker>().StartTimer();
     }
+
+    public void ShowSettings()
+    {
+		AudioManager.instance.Play("Click");
+
+        pauseMenu.SetActive(false);
+        settingsPanel.SetActive(true);
+	}
+
+    public void HideSettings()
+    {
+		AudioManager.instance.Play("Click");
+
+        settingsPanel.SetActive(false);
+        pauseMenu.SetActive(true);
+	}
 
     public void GameLaunch()
     {

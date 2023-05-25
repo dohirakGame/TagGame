@@ -9,36 +9,34 @@ public class MusicData : MonoBehaviour
 {
     private string _masterName = "MasterVolume";
     private string _musicName = "MusicVolume";
-    private string _soundName = "SoundVolume";
+    private string _effectsName = "EffectsVolume";
 
-    private string _masterSlider = "MasterSliderValie";
-    private string _musicSlider = "MusicSliderValie";
-    private string _soundSlider = "SoundSliderValie";
+    private string _masterSlider = "MasterSliderValue";
+    private string _musicSlider = "MusicSliderValue";
+    private string _effectsSlider = "EffectsSliderValue";
 
     private const string _master = "Master";
     private const string _music = "Music";
-    private const string _sound = "Sound";
+    private const string _effects = "Effects";
 
-    public float LoadData(string name)
+	public float LoadDataMixer(string name)
     {
         float value = 0;
         switch (name)
         {
             case _master:
-				if (PlayerPrefs.HasKey(_masterName)) value = PlayerPrefs.GetFloat(_masterName);
+                if (PlayerPrefs.HasKey(_masterName)) value = PlayerPrefs.GetFloat(_masterName);
 				break;
             case _music:
 				if (PlayerPrefs.HasKey(_musicName)) value = PlayerPrefs.GetFloat(_musicName);
 				break;
-            case _sound:
-				if (PlayerPrefs.HasKey(_soundName)) value = PlayerPrefs.GetFloat(_soundName);
+            case _effects:
+				if (PlayerPrefs.HasKey(_effectsName)) value = PlayerPrefs.GetFloat(_effectsName);
 				break;
-            default:
-                break;
         }
         return value;
     }
-    public void SaveData(float value, string name)
+    public void SaveDataMixer(float value, string name)
     {
         switch(name)
         {
@@ -48,39 +46,41 @@ public class MusicData : MonoBehaviour
             case _music:
 				PlayerPrefs.SetFloat(_musicName, value);
 				break;
-            case _sound:
-				PlayerPrefs.SetFloat(_soundName, value);
+            case _effects:
+				PlayerPrefs.SetFloat(_effectsName, value);
 				break;
         }
     }
 
-	public void LoadDataSlider(GameObject slider, string name)
+	public float LoadDataSlider(string name)
 	{
+        float value = 1;
 		switch (name)
 		{
 			case _master:
-				if (PlayerPrefs.HasKey(_masterSlider)) slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat(_masterSlider);
+				if (PlayerPrefs.HasKey(_masterSlider)) value = PlayerPrefs.GetFloat(_masterSlider);
 				break;
 			case _music:
-				if (PlayerPrefs.HasKey(_musicSlider)) slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat(_musicSlider);
+				if (PlayerPrefs.HasKey(_musicSlider)) value = PlayerPrefs.GetFloat(_musicSlider);
 				break;
-			case _sound:
-				if (PlayerPrefs.HasKey(_soundSlider)) slider.GetComponent<Slider>().value = PlayerPrefs.GetFloat(_soundSlider);
+			case _effects:
+				if (PlayerPrefs.HasKey(_effectsSlider)) value = PlayerPrefs.GetFloat(_effectsSlider);
 				break;
 		}
+        return value;
 	}
-	public void SaveDataSlider(GameObject slider, string name)
+	public void SaveDataSlider(float value, string name)
     {
         switch (name)
         {
             case _master:
-                PlayerPrefs.SetFloat(_masterSlider, slider.GetComponent<Slider>().value);
+                PlayerPrefs.SetFloat(_masterSlider, value);
 				break;
             case _music:
-				PlayerPrefs.SetFloat(_musicSlider, slider.GetComponent<Slider>().value);
+				PlayerPrefs.SetFloat(_musicSlider, value);
 				break;
-            case _sound:
-				PlayerPrefs.SetFloat(_soundSlider, slider.GetComponent<Slider>().value);
+            case _effects:
+				PlayerPrefs.SetFloat(_effectsSlider, value);
 				break;
         }
     }

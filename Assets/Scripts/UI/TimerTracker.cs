@@ -5,38 +5,51 @@ public class TimerTracker : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI timerText;
 
-	private int minutes = 0;
-	private int seconds = 0;
-	private bool isRunning;
+	private int _minutes = 0;
+	private int _seconds = 0;
+	private int _allSeconds = 0;
+	private bool _isRunning;
 
-	private float second = 1;
+	private float _second = 1;
+
+	public int GetAllSeconds()
+	{
+		return _allSeconds;
+	}
 
 	private void Update()
 	{
-		if (isRunning)
+		if (_isRunning)
 		{
-			second -= Time.deltaTime;
-			if (second <= 0)
+			_second -= Time.deltaTime;
+			if (_second <= 0)
 			{
-				second = 1;
-				seconds++;
+				_second = 1;
+				_seconds++;
+				_allSeconds++;
 			}
-			if (seconds == 60)
+			if (_seconds == 60)
 			{
-				minutes++;
-				seconds = 0;
+				_minutes++;
+				_seconds = 0;
 			}
-			timerText.text = string.Format("Время: {0:00}:{1:00}", minutes, seconds);
+			timerText.text = string.Format("Время: {0:00}:{1:00}", _minutes, _seconds);
 		}
 	}
 	public void StartTimer()
 	{
-		isRunning = true;
+		_isRunning = true;
 	}
 
 	public void StopTimer()
 	{
-		isRunning = false;
+		_isRunning = false;
+	}
+
+	public void SaveLevelTime(int levelID)
+	{
+		if (!PlayerPrefs.HasKey($"LevelTime{levelID}")) PlayerPrefs.SetInt($"LevelTime{levelID}", _allSeconds);
+		else if (_allSeconds < PlayerPrefs.GetInt($"LevelTime{levelID}")) PlayerPrefs.SetInt($"LevelTime{levelID}", _allSeconds);
 	}
 }
 

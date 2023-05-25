@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0396a9abf2ea29c4197f5920da6a7519
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - glassImage: {fileID: 21300000, guid: 1c4c0653ce7504c43b27203758976d85, type: 3}
+  - bronzeImage: {fileID: 21300000, guid: 526585812db98f34fbfabcfa2705c0c3, type: 3}
+  - ironImage: {fileID: 21300000, guid: c47f66daa56dd7d48b75a37cd30f226a, type: 3}
+  - goldImage: {fileID: 21300000, guid: 5ffb0bbb071cff041ac796b295340d70, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

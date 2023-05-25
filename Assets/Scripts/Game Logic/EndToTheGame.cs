@@ -57,6 +57,7 @@ public class EndToTheGame : MonoBehaviour
         if (_numberOfTrueCubes == _numberOfCubes)
         {
             buttonHandingInGame.GameOver();
+            FindObjectOfType<StarInVictoryPanel>().ShowResult();
         }
     }
 }
