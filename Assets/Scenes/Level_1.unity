@@ -8302,7 +8302,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567252755}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1579271741
 GameObject:
   m_ObjectHideFlags: 0
@@ -9589,7 +9601,7 @@ GameObject:
   - component: {fileID: 1799377766}
   - component: {fileID: 1799377765}
   m_Layer: 5
-  m_Name: Pattern
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10515,7 +10527,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567252755}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
+        m_MethodName: ChangeMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1946283909
 GameObject:
   m_ObjectHideFlags: 0
@@ -10832,9 +10856,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1863360312}
-        m_TargetAssemblyTypeName: ButtonHandingInGame, Assembly-CSharp
-        m_MethodName: HideSettings
+      - m_Target: {fileID: 567252755}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
+        m_MethodName: SaveData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10844,9 +10868,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 567252755}
-        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
-        m_MethodName: SaveData
+      - m_Target: {fileID: 1863360312}
+        m_TargetAssemblyTypeName: ButtonHandingInGame, Assembly-CSharp
+        m_MethodName: HideSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11891,7 +11915,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567252755}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
+        m_MethodName: ChangeEffectsVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &2144491969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11975,6 +12011,10 @@ PrefabInstance:
     - target: {fileID: 3085558103334640460, guid: 431b05b473ed0bf4b82f6e19083afea1, type: 3}
       propertyPath: m_Name
       value: Clouds
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085558103334640461, guid: 431b05b473ed0bf4b82f6e19083afea1, type: 3}
+      propertyPath: yHeight
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 431b05b473ed0bf4b82f6e19083afea1, type: 3}

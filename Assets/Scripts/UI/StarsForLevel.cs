@@ -27,7 +27,7 @@ public class StarsForLevel : MonoBehaviour
 
 			if (allSecond <= timeForGold) gameObject.GetComponent<Image>().sprite = goldImage;
 			else if (allSecond > timeForGold && allSecond <= timeForIron) gameObject.GetComponent<Image>().sprite = ironImage;
-			else if (allSecond > timeForBronze) gameObject.GetComponent<Image>().sprite = bronzeImage;
+			else if (allSecond > timeForIron && allSecond <= timeForBronze) gameObject.GetComponent<Image>().sprite = bronzeImage;
 			else gameObject.GetComponent<Image>().sprite = glassImage;
 		}
 		else gameObject.GetComponent<Image>().sprite = glassImage;
