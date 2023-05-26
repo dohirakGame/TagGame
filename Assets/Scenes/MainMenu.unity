@@ -1090,9 +1090,9 @@ MonoBehaviour:
   ironImage: {fileID: 21300000, guid: c47f66daa56dd7d48b75a37cd30f226a, type: 3}
   goldImage: {fileID: 21300000, guid: 5ffb0bbb071cff041ac796b295340d70, type: 3}
   levelID: 7
-  timeForGold: 80
-  timeForIron: 100
-  timeForBronze: 150
+  timeForGold: 95
+  timeForIron: 115
+  timeForBronze: 165
 --- !u!1 &154847423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,9 +2694,9 @@ MonoBehaviour:
   ironImage: {fileID: 21300000, guid: c47f66daa56dd7d48b75a37cd30f226a, type: 3}
   goldImage: {fileID: 21300000, guid: 5ffb0bbb071cff041ac796b295340d70, type: 3}
   levelID: 3
-  timeForGold: 100
-  timeForIron: 120
-  timeForBronze: 170
+  timeForGold: 120
+  timeForIron: 140
+  timeForBronze: 190
 --- !u!1 &631498324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,9 +3408,9 @@ MonoBehaviour:
   ironImage: {fileID: 21300000, guid: c47f66daa56dd7d48b75a37cd30f226a, type: 3}
   goldImage: {fileID: 21300000, guid: 5ffb0bbb071cff041ac796b295340d70, type: 3}
   levelID: 10
-  timeForGold: 180
-  timeForIron: 200
-  timeForBronze: 250
+  timeForGold: 210
+  timeForIron: 230
+  timeForBronze: 280
 --- !u!1 &887146110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,9 +3976,9 @@ MonoBehaviour:
   ironImage: {fileID: 21300000, guid: c47f66daa56dd7d48b75a37cd30f226a, type: 3}
   goldImage: {fileID: 21300000, guid: 5ffb0bbb071cff041ac796b295340d70, type: 3}
   levelID: 6
-  timeForGold: 70
-  timeForIron: 90
-  timeForBronze: 140
+  timeForGold: 110
+  timeForIron: 130
+  timeForBronze: 180
 --- !u!1 &1096888381
 GameObject:
   m_ObjectHideFlags: 0
@@ -8776,9 +8776,9 @@ MonoBehaviour:
   ironImage: {fileID: 21300000, guid: c47f66daa56dd7d48b75a37cd30f226a, type: 3}
   goldImage: {fileID: 21300000, guid: 5ffb0bbb071cff041ac796b295340d70, type: 3}
   levelID: 8
-  timeForGold: 340
-  timeForIron: 360
-  timeForBronze: 410
+  timeForGold: 360
+  timeForIron: 380
+  timeForBronze: 430
 --- !u!1 &1946303858
 GameObject:
   m_ObjectHideFlags: 0
